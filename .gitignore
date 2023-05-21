@@ -1,3 +1,6 @@
-*.log
-db.sqlite3
-/frontend/node_modules
+*.env
+*.pyc
+*.sqlite3
+*.node
+node_modules
+__pycache__
