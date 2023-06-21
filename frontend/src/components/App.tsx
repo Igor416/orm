@@ -1,10 +1,17 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { Outlet } from "react-router-dom";
+import { getUser } from '../api';
+import Menu from './Menu';
 
-function App() {
+export default function App() {
+  const [username, setUsername] = useState('')
+  useEffect(() => {
+    getUser().then(resp => setUsername(resp))
+  }, []);
   return (
-    <div className="App">
+    <div className="d-flex flex-column">
+      <Menu username={username}/>
+      <Outlet/>
     </div>
   );
 }
-
-export default App;
